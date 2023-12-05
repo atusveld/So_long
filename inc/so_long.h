@@ -9,6 +9,7 @@
 /*   Updated: 2023/02/16 19:05:15 by atusveld      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
+
 //==========[  ]==========//
 #ifndef SO_LONG_H
 # define SO_LONG_H
@@ -24,11 +25,11 @@
 # include <stdlib.h>
 
 //==========[ ERROR ]==========//
-#define HERE "Error\n--> HERE <--.\n"
-#define ARG "Error\nGive map no funny business.\n"
-#define MAP "Error\nInvalid map yo.\n"
-#define FDER "Error\nFile descriptor fell down.\n"
-#define MLX "Error\nMLX failed us all.\n"
+# define HERE "Error\n--> HERE <--.\n"
+# define ARG "Error\nGive map no funny business.\n"
+# define MAP "Error\nInvalid map yo.\n"
+# define FDER "Error\nFile descriptor fell down.\n"
+# define MLX "Error\nMLX failed us all.\n"
 //==========[ SPRITE STRUCT ]==========//
 typedef struct s_sprt
 {

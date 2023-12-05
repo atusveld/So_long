@@ -97,6 +97,7 @@ t_sl	ft_init_structs(mlx_t *mlx, char **map)
 mlx_t	*ft_mlx_init(void)
 {
 	mlx_t			*mlx;
+
 	mlx = mlx_init(1440, 1080, "So_long", false);
 	if (!mlx)
 		ft_error(MLX);

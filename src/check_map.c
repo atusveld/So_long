@@ -14,15 +14,11 @@
 
 void	ft_check_map(t_sl *sl)
 {
-	int			e;
-	int			p;
 	int			x;
 	int			xx;
 	int			y;
 
 	y = 0;
-	e = 0;
-	p = 0;
 	xx = ft_strlen(sl->map[0]);
 	while (sl->map[y] != NULL)
 	{
@@ -35,18 +31,13 @@ void	ft_check_map(t_sl *sl)
 			{
 				sl->x = x;
 				sl->y = y;
-				p += 1;
 			}
-			if (sl->map[y][x] == 'E')
-				e += 1;
 			x++;
 		}
 		if (x != xx)
 			ft_error(MAP);
 		y++;
 	}
-	if (sl->tc < 1 || e < 1 || p < 1)
-		ft_error(MAP);
 	ft_walls(sl, xx, y);
 }
 
@@ -76,9 +67,8 @@ void	ft_walls(t_sl *sl, int xx, int yy)
 		ft_error(MAP);
 	if (sl->fc != sl->tc)
 		ft_error(MAP);
+	ft_criteria(sl);
 }
-
-#include <stdio.h>
 
 int	ft_pathfinder(t_sl *sl, int x, int y)
 {
@@ -102,4 +92,8 @@ int	ft_pathfinder(t_sl *sl, int x, int y)
 	return (rt);
 }
 
-//- valid path possible C, E
+void	ft_criteria(t_sl *sl)
+{
+	if (sl->x < 1 || sl->y < 1)
+		ft_error(MAP);
+}

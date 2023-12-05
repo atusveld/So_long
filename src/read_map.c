@@ -93,8 +93,6 @@ char	**ft_read_map(char *map_name)
 	char	*map_str;
 	char	buffer[2];
 
-	if (map_name == NULL)
-		ft_error(MAP);
 	fd = open(map_name, O_RDONLY);
 	if (fd == -1)
 		ft_error(FDER);
