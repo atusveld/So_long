@@ -16,7 +16,8 @@ SRC			=		main.c\
 					src/init.c\
 					src/read_map.c\
 					src/check_map.c\
-					src/hook.c
+					src/hook.c\
+					src/error.c
 
 DR_SRC		=		src/
 DR_INC		=		inc/

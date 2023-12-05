@@ -37,9 +37,7 @@ static	int	ft_count_row_sl(char const *str, char c)
 		else
 		{
 			while (*str != c && *str)
-			{
 				str++;
-			}
 			count++;
 		}
 	}
@@ -95,10 +93,14 @@ char	**ft_read_map(char *map_name)
 	char	*map_str;
 	char	buffer[2];
 
-	map_str = ft_strdup("");
+	if (map_name == NULL)
+		ft_error(MAP);
 	fd = open(map_name, O_RDONLY);
+	if (fd == -1)
+		ft_error(FDER);
 	if (read(fd, buffer, 0) == -1)
-		return (NULL);
+		ft_error(MAP);
+	map_str = ft_strdup("");
 	while (read(fd, buffer, 1) == 1)
 	{
 		buffer[1] = '\0';
@@ -108,5 +110,8 @@ char	**ft_read_map(char *map_name)
 			free (tmp);
 	}
 	map = ft_split_sl(map_str, '\n');
+	free (map_str);
+	if (!map)
+		ft_error(MAP);
 	return (map);
 }

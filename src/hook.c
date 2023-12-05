@@ -12,22 +12,6 @@
 
 #include "so_long.h"
 
-void	ft_error(int f)
-{
-	if (f == 1)
-	{
-		ft_putstr_fd("ERROR", 2);
-		exit(EXIT_FAILURE);
-	}
-}
-
-void	ft_close(void *param)
-{
-	(void)param;
-	write(1, "EXIT\n", 5);
-	exit(EXIT_SUCCESS);
-}
-
 void	ft_keyhook(mlx_key_data_t keydata, void *param)
 {
 	t_sl	*sl;

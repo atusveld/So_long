@@ -48,7 +48,7 @@ mlx_image_t	*ft_tile_gen(mlx_t *mlx, int rgb, int x, int y)
 
 	img = mlx_new_image(mlx, x, y);
 	if (!img)
-		exit (EXIT_FAILURE);
+		ft_error(MLX);
 	i = x;
 	j = y;
 	x = 0;
@@ -88,6 +88,17 @@ t_sl	ft_init_structs(mlx_t *mlx, char **map)
 	sl.y = 0;
 	sl.c = 0;
 	sl.tc = 0;
+	sl.fc = 0;
+	sl.fe = 0;
 	sl.st = 0;
 	return (sl);
+}
+
+mlx_t	*ft_mlx_init(void)
+{
+	mlx_t			*mlx;
+	mlx = mlx_init(1440, 1080, "So_long", false);
+	if (!mlx)
+		ft_error(MLX);
+	return (mlx);
 }

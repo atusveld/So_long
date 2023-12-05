@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   main.c                                             :+:    :+:            */
+/*   error.c                                             :+:    :+:           */
 /*                                                     +:+                    */
 /*   By: atusveld <marvin@codam.nl>                   +#+                     */
 /*                                                   +#+                      */
@@ -12,22 +12,15 @@
 
 #include "so_long.h"
 
-int	main(int argc, char **argv)
+void	ft_error(char *str)
 {
-	char			**map;
-	mlx_t			*mlx;
-	t_sl			sl;
+	ft_putstr_fd(str, 2);
+	exit(EXIT_FAILURE);
+}
 
-	if (argc != 2)
-		ft_error(ARG);
-	map = ft_read_map(argv[1]);
-	mlx = ft_mlx_init();
-	sl = ft_init_structs(mlx, map);
-	sl.map2 = ft_read_map(argv[1]);
-	ft_check_map(&sl);
-	ft_init_map(&sl);
-	mlx_close_hook(mlx, &ft_close, NULL);
-	mlx_key_hook(mlx, &ft_keyhook, (void *)&sl);
-	mlx_loop(mlx);
-	return (0);
+void	ft_close(void *param)
+{
+	(void)param;
+	write(1, "EXIT\n", 5);
+	exit(EXIT_SUCCESS);
 }
