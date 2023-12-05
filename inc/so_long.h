@@ -65,6 +65,7 @@ char		**ft_read_map(char *map_name);
 char		**ft_split_sl(char const *str, char c);
 //==========[ CHECK MAP ]==========//
 void		ft_check_map(t_sl *sl);
+void		ft_criteria(t_sl *sl);
 void		ft_walls(t_sl *sl, int xx, int yy);
 int			ft_pathfinder(t_sl *sl, int x, int y);
 //==========[ HOOKS ]==========//
