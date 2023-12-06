@@ -62,12 +62,12 @@ void	ft_walls(t_sl *sl, int xx, int yy)
 		}
 		y++;
 	}
+	ft_criteria(sl);
 	v = ft_pathfinder(sl, sl->x, sl->y);
 	if (v == 0)
 		ft_error(MAP);
 	if (sl->fc != sl->tc || sl->c == sl->tc)
 		ft_error(MAP);
-	ft_criteria(sl);
 }
 
 int	ft_pathfinder(t_sl *sl, int x, int y)

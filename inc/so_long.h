@@ -25,7 +25,7 @@
 # include <stdlib.h>
 
 //==========[ ERROR ]==========//
-# define HERE "Error\n--> HERE <--.\n"
+# define HERE "Error\n--> HERE <--\n"
 # define ARG "Error\nGive map no funny business.\n"
 # define MAP "Error\nInvalid map yo.\n"
 # define FDER "Error\nFile descriptor fell down.\n"
@@ -56,7 +56,7 @@ typedef struct s_sl
 }	t_sl;
 //==========[ INIT ]==========//
 mlx_image_t	*ft_tile_gen(mlx_t *mlx, int rgb, int x, int y);
-mlx_t		*ft_mlx_init(void);
+mlx_t		*ft_mlx_init(char **map);
 t_sprt		ft_init_sprites(mlx_t *mlx);
 t_sl		ft_init_structs(mlx_t *mlx, char **map);
 void		ft_init_map(t_sl *so_long);

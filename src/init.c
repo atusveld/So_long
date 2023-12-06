@@ -94,11 +94,17 @@ t_sl	ft_init_structs(mlx_t *mlx, char **map)
 	return (sl);
 }
 
-mlx_t	*ft_mlx_init(void)
+mlx_t	*ft_mlx_init(char **map)
 {
+	int				width;
+	int				length;
 	mlx_t			*mlx;
 
-	mlx = mlx_init(1440, 1080, "So_long", false);
+	length = 0;
+	width = ft_strlen(map[1]);
+	while (map[length] != NULL)
+		length++;
+	mlx = mlx_init(32 * width, 32 * length, "So_long", false);
 	if (!mlx)
 		ft_error(MLX);
 	return (mlx);

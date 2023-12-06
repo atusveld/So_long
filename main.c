@@ -22,7 +22,7 @@ int	main(int argc, char **argv)
 		ft_error(ARG);
 	ft_check_arg(argv[1]);
 	map = ft_read_map(argv[1]);
-	mlx = ft_mlx_init();
+	mlx = ft_mlx_init(map);
 	sl = ft_init_structs(mlx, map);
 	sl.map2 = ft_read_map(argv[1]);
 	ft_check_map(&sl);
