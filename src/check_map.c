@@ -91,7 +91,6 @@ int	ft_pathfinder(t_sl *sl, int x, int y)
 	}
 	return (rt);
 }
-#include <stdio.h>
 
 void	ft_criteria(t_sl *sl)
 {
@@ -110,10 +109,10 @@ void	ft_criteria(t_sl *sl)
 		{
 			if (sl->map[y][x] == 'P')
 				pl += 1;
-			if (sl->map[y][x] != '0' && sl->map[y][x] != '1' && 
+			if (sl->map[y][x] != '0' && sl->map[y][x] != '1' &&
 				sl->map[y][x] != 'C' && sl->map[y][x] != 'P' &&
 				sl->map[y][x] != 'E')
-					ft_error(MAP);
+				ft_error(MAP);
 			x++;
 		}
 		y++;
