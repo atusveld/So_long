@@ -129,5 +129,5 @@ void	ft_check_arg(char *argv)
 	strl = ft_strlen(argv);
 	cmp = ft_strncmp(&argv[strl - 4], ".ber", 5);
 	if (cmp != 0)
-		ft_error(HERE);
+		ft_error(MAP);
 }
