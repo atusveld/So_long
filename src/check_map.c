@@ -65,7 +65,7 @@ void	ft_walls(t_sl *sl, int xx, int yy)
 	v = ft_pathfinder(sl, sl->x, sl->y);
 	if (v == 0)
 		ft_error(MAP);
-	if (sl->fc != sl->tc)
+	if (sl->fc != sl->tc || sl->c == sl->tc)
 		ft_error(MAP);
 	ft_criteria(sl);
 }
@@ -91,9 +91,44 @@ int	ft_pathfinder(t_sl *sl, int x, int y)
 	}
 	return (rt);
 }
+#include <stdio.h>
 
 void	ft_criteria(t_sl *sl)
 {
+	int		x;
+	int		y;
+	int		pl;
+
+	pl = 0;
+	y = 0;
 	if (sl->x < 1 || sl->y < 1)
 		ft_error(MAP);
+	while (sl->map[y] != NULL)
+	{
+		x = 0;
+		while (sl->map[y][x] != '\0')
+		{
+			if (sl->map[y][x] == 'P')
+				pl += 1;
+			if (sl->map[y][x] != '0' && sl->map[y][x] != '1' && 
+				sl->map[y][x] != 'C' && sl->map[y][x] != 'P' &&
+				sl->map[y][x] != 'E')
+					ft_error(MAP);
+			x++;
+		}
+		y++;
+	}
+	if (pl != 1)
+		ft_error(MAP);
+}
+
+void	ft_check_arg(char *argv)
+{
+	int		cmp;
+	int		strl;
+
+	strl = ft_strlen(argv);
+	cmp = ft_strncmp(&argv[strl - 4], ".ber", 5);
+	if (cmp != 0)
+		ft_error(HERE);
 }

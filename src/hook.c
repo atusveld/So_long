@@ -47,7 +47,10 @@ void	ft_update_player(t_sl *sl, int x, int y)
 			mlx_image_to_window(sl->mlx, sl->sprt.exit,
 				(sl->x * 32), (sl->y * 32));
 		if (sl->map[sl->y][sl->x] == 'C')
+		{
 			sl->c += 1;
+			sl->map[sl->y][sl->x] = '0';
+		}
 		sl->st += 1;
 		ft_putnbr_fd(sl->st, 1);
 		ft_putchar_fd('\n', 1);

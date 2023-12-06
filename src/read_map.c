@@ -67,6 +67,8 @@ static	void	ft_split_str_sl(char **arr, char const *str, char c, int count)
 		j++;
 		str += i;
 	}
+	if (*str != '\0')
+		ft_error(MAP);
 }
 
 char	**ft_split_sl(char const *str, char c)
@@ -76,11 +78,15 @@ char	**ft_split_sl(char const *str, char c)
 
 	if (!str)
 		return (NULL);
+	if (*str == c)
+		ft_error(MAP);
 	count = ft_count_row_sl(str, c);
+	if (count == 0)
+		ft_error(MAP);
 	arr = (char **) malloc(sizeof(char *) * (count + 1));
 	if (arr == NULL)
 		return (NULL);
-	arr[count] = 0;
+	arr[count] = NULL;
 	ft_split_str_sl(arr, str, c, count);
 	return (arr);
 }
